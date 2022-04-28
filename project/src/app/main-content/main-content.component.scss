@@ -1,0 +1,19 @@
+
+.how-to-more{
+  span{
+    font-weight: 700;
+    font-size: 18px;
+    &:nth-of-type(2){
+      font-weight: 100;
+      font-size: 14px;
+      float: right;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1199px) {
+  .how-to-more{
+    margin-top: 3rem;
+    }
+}
