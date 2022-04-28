@@ -1,0 +1,433 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$project-primary: mat.define-palette(mat.$indigo-palette);
+$project-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$project-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$project-theme: mat.define-light-theme((
+  color: (
+    primary: $project-primary,
+    accent: $project-accent,
+    warn: $project-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($project-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+// Font-Size
+$base-font-size: 1em;
+
+// Line-Height
+$base-line-height: 1.5;
+$header-line-height: 1.25;
+
+// Breakpoints
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+// Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+
+html, body { height: 100%; }
+body {margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-x: hidden; }
+
+body {
+  background-image: linear-gradient(90deg, #eaeaea  11%, #eeeeee  11%, #eee   50.66%, #fafafa 50.66%);
+
+}
+
+ul, li {
+  list-style: none;
+}
+
+ol, ul{
+  padding: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  margin: 0 2rem;
+}
+
+.alt-h6{
+  text-align: right;
+}
+
+/* Underline styles */
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+}
+
+img{
+  width:100%;
+}
+/* Fade in */
+// a {
+//   color: #f5af05;
+//   background-image: linear-gradient(#f5af05, #f5af05);
+//   background-size: 0% 0.1em;
+//   background-position-y: 100%;
+//   background-position-x: 50%;
+//   background-repeat: no-repeat;
+//   transition: background-size 0.2s ease-in-out;
+//   text-decoration: none;
+// }
+
+// a:hover,
+// a:focus,
+// a:active {
+//   background-size: 100% 0.1em;
+// }
+
+.header__img:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(36, 36, 36, 0) 0%, #242424 100%);
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+input.nosubmit {
+  border: 1px solid #555;
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+   background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi white bi-search' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+   border-radius:30px;
+   padding: 10px 0px 10px 45px;
+   background-color: #f5af05;
+   font-size: 0.875rem;
+   border: 1px solid #f5af05;
+   color: #fff;
+  }
+
+button {
+  border-radius:30px;
+  padding: 10px 15px;
+  background-color: #f5af05;
+  font-size: 0.875rem;
+  border: 1px solid #f5af05;
+  span{
+    padding-left: 10px;
+  }
+}
+
+.greeting{
+  color: #f5af05
+}
+
+.fa{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.two-col{
+  column-count: 2;
+}
+
+.fa-bars{
+  font-size: 2rem;
+}
+
+.mt-xl{
+  margin-top: 5rem;
+}
+
+p{
+  a{
+    color: #f5af05;
+    font-weight: 500;
+    span{
+      font-weight: 500;
+    }
+  }
+}
+
+
+
+.menu {
+  width: 100%;
+  display: flex;
+}
+.menu-container {
+margin: 0 auto;
+ display: flex;
+ max-width: 1800px;
+}
+.menu a.logo {
+  padding: 3.5em 3em;
+  width: 235px;
+  float:left;
+  div{
+    font-size: 0.875rem;
+    margin: -15px 0 0 9px;
+    white-space: nowrap;
+  }
+}
+.menu img {
+  max-width: 100%;
+}
+.menu-mobile {
+display: none;
+padding: 20px;
+}
+// .menu-mobile:after {
+// content: "\f394";
+// font-family: "Ionicons";
+// font-size: 2.5rem;
+// padding: 0;
+// float: right;
+// position: relative;
+// top: 50%;
+// -webkit-transform: translateY(-25%);
+//         transform: translateY(-25%);
+// }
+// .menu-dropdown-icon:before {
+// content: "\f489";
+// font-family: "Ionicons";
+// display: none;
+// cursor: pointer;
+// float: right;
+// padding: 1.5em 2em;
+// background: #fff;
+// color: #333;
+// }
+.menu > ul {
+// margin: 0 auto;
+//width: 80%;
+//list-style: none;
+//padding: 0;
+//position: relative;
+/* IF .menu position=relative -> ul = container width, ELSE ul = 100% width */
+// box-sizing: border-box;
+//     clear: right;
+}
+.menu > ul:before,
+.menu > ul:after {
+content: "";
+display: table;
+}
+.menu > ul:after {
+clear: both;
+}
+.menu > ul > li {
+float: left;
+//background: #e9e9e9;
+padding: 0;
+margin: 0;
+}
+.menu > ul > li {
+text-decoration: none;
+padding: 3.5rem 1rem 0 1.75rem;
+display: block;
+font-size: 1rem;
+}
+.menu > ul > li:hover {
+//background: #f0f0f0;
+}
+.menu > ul > li > ul {
+display: none;
+width: 100%;
+// background: #f0f0f0;
+padding: 20px;
+position: absolute;
+z-index: 99;
+left: 0;
+margin: 0;
+list-style: none;
+box-sizing: border-box;
+}
+.menu > ul > li > ul:before,
+.menu > ul > li > ul:after {
+content: "";
+display: table;
+}
+.menu > ul > li > ul:after {
+clear: both;
+}
+.menu > ul > li > ul > li {
+margin: 0;
+padding-bottom: 0;
+list-style: none;
+width: 25%;
+background: none;
+float: left;
+}
+.menu > ul > li > ul > li a {
+color: #777;
+padding: .2em 0;
+width: 95%;
+display: block;
+border-bottom: 1px solid #ccc;
+}
+.menu > ul > li > ul > li a:hover{
+color:#03a9f4;
+}
+.menu > ul > li > ul > li > ul {
+display: block;
+padding: 0;
+margin: 10px 0 0;
+list-style: none;
+box-sizing: border-box;
+}
+.menu > ul > li > ul > li > ul:before,
+.menu > ul > li > ul > li > ul:after {
+content: "";
+display: table;
+}
+.menu > ul > li > ul > li > ul:after {
+clear: both;
+}
+.menu > ul > li > ul > li > ul > li {
+float: left;
+width: 100%;
+padding: 10px 0;
+margin: 0;
+font-size: .8em;
+}
+.menu > ul > li > ul > li > ul > li a {
+border: 0;
+font-size: 14px;
+}
+.menu > ul > li > ul.normal-sub {
+width: 300px;
+left: auto;
+padding: 10px 20px;
+}
+.menu > ul > li > ul.normal-sub > li {
+width: 100%;
+}
+.menu > ul > li > ul.normal-sub > li a {
+border: 0;
+padding: 1em 0;
+}
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Mobile style's
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media only screen and (max-width: 1048px) {
+.menu-container {
+  width: 100%;
+}
+
+.menu-container .menu{
+display:inline-block;
+ }
+.menu-mobile {
+  display: block;
+  float: right;
+  padding: 20px 20px 0;
+  margin:2.5rem 1rem 0 0;
+}
+.menu-dropdown-icon:before {
+  display: block;
+}
+.menu > ul {
+  display: none;
+  width:100%;
+}
+.menu > ul > li {
+  width: 100%;
+  float: none;
+  display: block;
+  padding: 1rem 1rem 0 1rem !important;
+}
+.menu > ul > li a {
+  padding: 1.5em;
+  width: 100%;
+  display: block;
+}
+.menu > ul > li > ul {
+  position: relative;
+  padding: 0 40px;
+}
+.menu > ul > li > ul.normal-sub {
+  width: 100%;
+}
+.menu > ul > li > ul > li {
+  float: none;
+  width: 100%;
+  margin-top: 20px;
+}
+.menu > ul > li > ul > li:first-child {
+  margin: 0;
+}
+.menu > ul > li > ul > li > ul {
+  position: relative;
+}
+.menu > ul > li > ul > li > ul > li {
+  float: none;
+}
+.menu .show-on-mobile {
+  display: block;
+  background: #eaeaea;
+}
+
+  .menu > ul > li span > a {
+    padding: 1.5em 0;
+    width: 100%;
+    display: block;
+  }
+}
+
+
+@media screen and (min-width: 320px) {
+  h1 {
+    font-size: calc(30px + 4 * ((100vw - 320px) / 1200));
+  }
+  h2 {
+    font-size: calc(22px + 2 * ((100vw - 320px) / 1200));
+  }
+
+  // p,
+  // span,
+  // body{
+  //   font-size: calc(16px + 3 * ((100vw - 320px) / 1200));
+  // }
+}
